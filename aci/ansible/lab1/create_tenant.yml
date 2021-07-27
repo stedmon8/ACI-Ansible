@@ -1,0 +1,17 @@
+---
+
+- name: playbook for testing tenants
+  hosts: apic
+  connection: local
+  gather_facts: no
+
+  tasks:
+  - name: Add a new tenant
+    aci_tenant:
+      hostname: apic
+      username: admin
+      password: C1sco12345
+      tenant: ACILab
+      description: Test tenant
+      state: absent
+      validate_certs: false
